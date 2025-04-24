@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Face Expression Detection</title>
+<style>
+    /* General body styling */
+    body {
+      background-image: url('https://images.unsplash.com/photo-1614851099511-773084f6911d?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z3JhZGllbnQlMjB3YWxscGFwZXJ8ZW58MHx8MHx8fDA%3D');  /* Image background */
+      background-size: cover;  /* Ensure the image covers the entire screen */
+      background-position: center;  /* Center the image */
+      background-repeat: no-repeat;  /* Prevent the image from repeating */
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      color: #333;
+    }
+
+    /* Glassmorphism effect for the container */
+    .glass {
+      background: rgba(255, 255, 255, 0.1);  /* Semi-transparent white background */
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(15px);  /* Glass-like effect with blur */
+      border: 1px solid rgba(255, 255, 255, 0.2); /* Soft border for the glass effect */
+      text-align: center;
+      width: 80%;
+      max-width: 720px;
+    }
+
+    /* Styling for instruction text */
+    #instruction {
+      font-size: 1.2rem;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    /* Styling for video */
+    video {
+      border-radius: 10px;
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    /* Styling for emoji */
+    #emoji {
+      font-size: 6rem; /* Larger emoji */
+      margin-top: 20px;
+      color: #fff;
+      transition: transform 0.3s ease; /* Smooth transition for emoji */
+    }
+
+    /* Ensure responsiveness for small devices */
+    @media (max-width: 768px) {
+      .glass {
+        width: 90%;
+      }
+      #emoji {
+        font-size: 4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+    <video id="video" width="560" height="560" autoplay muted></video>
+    <div id="emoji">😐</div>
+ <script defer
+ src="https://cdn.jsdelivr.net/npm/face-api.js/dist/face-api.min.js">
+ </script>
+ <script defer src="apps.js"></script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Face Expression Detection</title>
+<style>
+video, canvas {
+display: block;
+ margin: auto;
+ }
+ #emoji {
+ text-align: center;
+ font-size: 5rem;
+ margin-top: 20px;
+ }
+ </style>
+</head>
+<body>
+ <video id="video" width="720" height="560" autoplay muted></video>
+ <div id="emoji">😐</div>
+ <script defer
+ src="https://cdn.jsdelivr.net/npm/face-api.js/dist/face-api.min.js">
+ </script>
+ <script defer src="apps.js"></script>
+</body>
+</html> -->
+
+
+
+<!-- <style>
+    /* General body styling */
+    body {
+      background-image: url('https://source.unsplash.com/random');  /* Image background */
+      background-size: cover;  /* Ensure the image covers the entire screen */
+      background-position: center;  /* Center the image */
+      background-repeat: no-repeat;  /* Prevent the image from repeating */
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      color: #333;
+    }
+
+    /* Glassmorphism effect for the container */
+    .glass {
+      background: rgba(255, 255, 255, 0.1);  /* Semi-transparent white background */
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(15px);  /* Glass-like effect with blur */
+      border: 1px solid rgba(255, 255, 255, 0.2); /* Soft border for the glass effect */
+      text-align: center;
+      width: 80%;
+      max-width: 720px;
+    }
+
+    /* Styling for instruction text */
+    #instruction {
+      font-size: 1.2rem;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    /* Styling for video */
+    video {
+      border-radius: 10px;
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    /* Styling for emoji */
+    #emoji {
+      font-size: 6rem; /* Larger emoji */
+      margin-top: 20px;
+      color: #fff;
+      transition: transform 0.3s ease; /* Smooth transition for emoji */
+    }
+
+    /* Ensure responsiveness for small devices */
+    @media (max-width: 768px) {
+      .glass {
+        width: 90%;
+      }
+      #emoji {
+        font-size: 4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Glassmorphism container -->
+  <div class="glass">
+    <div id="instruction">Look at the camera and express your emotions! 😄</div>
+    <video id="video" autoplay muted></video>
+    <div id="emoji">😐</div>
+  </div> -->
