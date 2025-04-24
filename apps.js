@@ -36,35 +36,34 @@ function getTopExpression(expressions) {
 
 // When video starts playing, initialize the canvas
 video.addEventListener('play', () => {
-  // Create canvas from the video
   const canvas = faceapi.createCanvasFromMedia(video);
-  document.body.append(canvas); // Append the canvas to the body
-  
-  // Match canvas size to the video
-  const displaySize = { width: video.width, height: video.height };
+  const container = document.getElementById('video-container');
+  container.appendChild(canvas); // Tambahkan canvas ke container
+
+  const displaySize = {
+    width: video.videoWidth,
+    height: video.videoHeight
+  };
+  canvas.width = displaySize.width;
+  canvas.height = displaySize.height;
   faceapi.matchDimensions(canvas, displaySize);
 
-  // Set an interval to detect faces every 300ms
   setInterval(async () => {
-    // Detect all faces with expressions
-    const detections = await faceapi.detectAllFaces(
-      video,
-      new faceapi.TinyFaceDetectorOptions()
-    ).withFaceExpressions();
+    const detections = await faceapi
+      .detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
+      .withFaceExpressions();
 
-    // Clear the previous canvas content
-    canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Resize the detections to match the video size
     const resizedDetections = faceapi.resizeResults(detections, displaySize);
-
-    // Draw the bounding boxes and expressions on the canvas
     faceapi.draw.drawDetections(canvas, resizedDetections);
 
     if (detections.length > 0) {
-      // Get the top expression and display the corresponding emoji
       const topExp = getTopExpression(detections[0].expressions);
-      emojiDisplay.textContent = expressionEmojis[topExp] || "😐"; // Default to neutral if no expression matched
+      emojiDisplay.textContent = expressionEmojis[topExp] || "😐";
     }
-  }, 300); // Run detection every 300ms
+  }, 300);
 });
+
+
